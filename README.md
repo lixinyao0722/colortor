@@ -1,4 +1,5 @@
-# rollup-starter-lib
+# colortor 
+> initialed by rollup-starter-lib
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/rollup/rollup-starter-lib.svg)](https://greenkeeper.io/)
 
