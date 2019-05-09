@@ -5,6 +5,7 @@
   "main": "dist/how-long-till-lunch.cjs.js",
   "module": "dist/how-long-till-lunch.esm.js",
   "devDependencies": {
+    "@types/fs-extra": "^5.1.0",
     "rollup": "^1.0.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
@@ -21,5 +22,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "globby": "^9.2.0"
+  }
 }
