@@ -4,8 +4,6 @@ import { Encoding, Pattern } from '../constants';
 import { readTextFiles } from '../util';
 import { Dictionary } from './types';
 
-export * from './types';
-
 export function const2Var(content: string, const2VarMap: Dictionary): string {
   const matches = content.match(Pattern.STYLE);
   if (!matches || !matches[0]) {
@@ -67,7 +65,6 @@ export async function formatFileConst2Var(
     promises.push(promise);
   }
   await Promise.all(promises);
-  console.log('success...');
 }
 
 
