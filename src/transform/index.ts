@@ -32,17 +32,18 @@ export function resolveConst2VarMap(content: string) {
 
 /**
  * Format the source code files. Try to replace the color constants with variables defined in scss 's constant files.
- * @param {string | ReadonlyArray<string>} varFilePatterns
+ * @param {string | string[]} varFilePatterns
  * @param {string[]} sourceCodePatterns
  * @param {globby.GlobbyOptions} varFileOptions
  * @param {globby.GlobbyOptions} sourceCodeOptions
  * @returns {Promise<void>}
  */
 export async function formatFileConst2Var(
-  varFilePatterns: string | ReadonlyArray<string>,
+  varFilePatterns: string | string[],
   sourceCodePatterns: string[],
   varFileOptions?: globby.GlobbyOptions,
-  sourceCodeOptions?: globby.GlobbyOptions): Promise<void> {
+  sourceCodeOptions?: globby.GlobbyOptions,
+): Promise<void> {
   const varFilePromise: Promise<string[]> = globby.default(varFilePatterns, varFileOptions);
   const sourceCodePromise: Promise<string[]> = globby.default(sourceCodePatterns, sourceCodeOptions);
   const [varFilePaths, sourceCodePaths]: [string[], string[]] = await Promise.all([varFilePromise, sourceCodePromise]);
@@ -52,7 +53,7 @@ export async function formatFileConst2Var(
   const const2VarMap = Object.assign({}, ...mapList);
   const sourceCodes: string[] = await readTextFiles(sourceCodePaths);
 
-  const promises: Array<Promise<void>> = [];
+  const promises: Promise<void>[] = [];
   for (let i = 0; i < sourceCodePaths.length; i++) {
     const sourceCodePath: string = sourceCodePaths[i];
     const sourceCode: string = sourceCodes[i];

@@ -2,8 +2,8 @@
   "name": "colortor",
   "version": "1.0.0",
   "description": "transform/format colors",
-  "main": "dist/how-long-till-lunch.cjs.js",
-  "module": "dist/how-long-till-lunch.esm.js",
+  "main": "dist/colortor.cjs.js",
+  "module": "dist/colortor.esm.js",
   "devDependencies": {
     "@types/fs-extra": "^5.1.0",
     "rollup": "^1.0.0",
