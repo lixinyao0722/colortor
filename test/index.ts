@@ -1,0 +1,2 @@
+// import './transform';
+require('./transform');

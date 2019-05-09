@@ -57,7 +57,7 @@ export async function formatFileConst2Var(
   for (let i = 0; i < sourceCodePaths.length; i++) {
     const sourceCodePath: string = sourceCodePaths[i];
     const sourceCode: string = sourceCodes[i];
-    const formatCode: string = const2VarMap(sourceCode, const2VarMap);
+    const formatCode: string = const2Var(sourceCode, const2VarMap);
     const promise: Promise<void> = fs.writeFile(sourceCodePath, formatCode, {
       encoding: Encoding.UTF8,
       flag: 'w',

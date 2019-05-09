@@ -17,8 +17,7 @@
   "scripts": {
     "build": "rm -rf dist && rollup -c",
     "dev": "rollup -c -w",
-    "test": "ts-node test/test.ts",
-    "pretest": "npm run build"
+    "test": "ts-node test"
   },
   "files": [
     "dist",
