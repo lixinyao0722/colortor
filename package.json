@@ -1,6 +1,6 @@
 {
   "name": "colortor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "transform/format colors",
   "main": "dist/colortor.cjs.js",
   "module": "dist/colortor.esm.js",
