@@ -4,18 +4,19 @@
   "description": "transform/format colors",
   "main": "dist/colortor.cjs.js",
   "module": "dist/colortor.esm.js",
+  "types": "dist/main.d.ts",
   "devDependencies": {
-    "@types/fs-extra": "^5.1.0",
     "rollup": "^1.0.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-typescript2": "^0.21.0",
     "ts-node": "^7.0.1",
     "tslib": "^1.9.3",
     "typescript": "^3.2.2"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rm -rf dist && rollup -c",
     "dev": "rollup -c -w",
     "test": "ts-node test/test.ts",
     "pretest": "npm run build"
@@ -24,6 +25,7 @@
     "dist"
   ],
   "dependencies": {
+    "@types/fs-extra": "^5.1.0",
     "fs-extra": "^7.0.1",
     "globby": "^9.2.0"
   }
