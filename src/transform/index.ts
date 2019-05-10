@@ -32,18 +32,13 @@ export function resolveConst2VarMap(content: string) {
 
 /**
  * Format the source code files. Try to replace the color constants with variables defined in scss 's constant files.
- * @param {string | string[]} varFilePatterns
- * @param {string[]} sourceCodePatterns
- * @param {globby.GlobbyOptions} varFileOptions
- * @param {globby.GlobbyOptions} sourceCodeOptions
- * @returns {Promise<void>}
  */
 export async function formatFileConst2Var(
   varFilePatterns: string | string[],
-  sourceCodePatterns: string[],
+  sourceCodePatterns: string | string[],
   varFileOptions?: globby.GlobbyOptions,
   sourceCodeOptions?: globby.GlobbyOptions,
-): Promise<void> {
+): Promise<Dictionary> {
   const varFilePromise: Promise<string[]> = globby.default(varFilePatterns, varFileOptions);
   const sourceCodePromise: Promise<string[]> = globby.default(sourceCodePatterns, sourceCodeOptions);
   const [varFilePaths, sourceCodePaths]: [string[], string[]] = await Promise.all([varFilePromise, sourceCodePromise]);
@@ -53,18 +48,20 @@ export async function formatFileConst2Var(
   const const2VarMap = Object.assign({}, ...mapList);
   const sourceCodes: string[] = await readTextFiles(sourceCodePaths);
 
+  const formatMap: Dictionary = {};
   const promises: Promise<void>[] = [];
   for (let i = 0; i < sourceCodePaths.length; i++) {
     const sourceCodePath: string = sourceCodePaths[i];
     const sourceCode: string = sourceCodes[i];
     const formatCode: string = const2Var(sourceCode, const2VarMap);
+    formatMap[sourceCodePath] = formatCode;
     const promise: Promise<void> = fs.writeFile(sourceCodePath, formatCode, {
       encoding: Encoding.UTF8,
       flag: 'w',
     });
     promises.push(promise);
   }
-  await Promise.all(promises);
+  return Promise.all(promises).then(() => formatMap);
 }
 
 

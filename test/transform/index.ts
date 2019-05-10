@@ -1,11 +1,13 @@
-// import { formatFileConst2Var } from '../..';
-// import * as path from 'path';
-
-// import {formatFileConst2Var} = require('../../')
 const path = require('path');
 const {formatFileConst2Var} = require('../..');
 
-formatFileConst2Var(
-  [path.resolve(__dirname, 'files/var/**/*.scss')],
-  [path.resolve(__dirname, 'files/source-codes/**/*.vue')],
-);
+function testFormatFileConst2Var() {
+  const varFilePatterns: string[] = [path.resolve(__dirname, 'files/var/**/*.scss')];
+  const sourceCodePatterns: string[] = [path.resolve(__dirname, 'files/source-codes/**/*.vue')];
+
+  formatFileConst2Var(varFilePatterns, sourceCodePatterns)
+    .then(formatMap => console.log('success ...', formatMap))
+    .catch(e => console.log('error', e));
+}
+
+testFormatFileConst2Var();

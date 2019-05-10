@@ -10,10 +10,10 @@
 
 <style scoped lang="scss">
   .btn {
-    color: #ff6027;
+    color: $primary;
 
     &.success {
-      color: #61e900;
+      color: $success;
     }
 
     &.warning {

@@ -15,7 +15,9 @@ export default [
       'globby',
     ],
     plugins: [
-      typescript(), // so Rollup can convert TypeScript to JavaScript
+      typescript({
+        useTsconfigDeclarationDir: true,
+      }), // so Rollup can convert TypeScript to JavaScript
     ],
     output: [
       {file: pkg.main, format: 'cjs'},

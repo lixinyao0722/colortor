@@ -10,10 +10,10 @@
 
 <style lang="scss" scoped>
   .input {
-    color: #ff6027;
+    color: $primary;
 
     &.info {
-      color: #10a3ff;
+      color: $info;
     }
 
     &.warning {

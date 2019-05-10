@@ -1,4 +1,4 @@
 # colortor 
 > initialed by rollup-starter-lib
 
-This is a test lib.
+This is a test library.

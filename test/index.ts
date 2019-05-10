@@ -1,2 +1,1 @@
-// import './transform';
 require('./transform');
