@@ -9,6 +9,11 @@
   "main": "dist/colortor.cjs.js",
   "module": "dist/colortor.esm.js",
   "types": "dist/main.d.ts",
+  "dependencies": {
+    "@types/fs-extra": "^5.1.0",
+    "fs-extra": "^7.0.1",
+    "globby": "^9.2.0"
+  },
   "devDependencies": {
     "rollup": "^1.0.0",
     "rollup-plugin-commonjs": "^9.2.0",
@@ -27,10 +32,9 @@
     "dist",
     "src"
   ],
-  "dependencies": {
-    "@types/fs-extra": "^5.1.0",
-    "fs-extra": "^7.0.1",
-    "globby": "^9.2.0"
-  },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lixinyao0722/colotor.git "
+  }
 }
